@@ -1,0 +1,324 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework5_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 3 Nov 2023, 15:56:21
+{txt}
+{com}.         
+. *********
+. *       1: Homework Code
+. *********
+. 
+. 
+. *QUESTION 1
+. 
+. use "${c -(}classpath{c )-}nlsw88.dta", clear
+{txt}(NLSW, 1988 extract)
+
+{com}. *1A
+. reg wage ttl_exp // reg Y(outcome of treatment) X
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,246
+{txt}{hline 13}{c +}{hline 34}   F(1, 2244)      = {res}   170.14
+{txt}       Model {c |} {res} 5241.29609         1  5241.29609   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 69126.6713     2,244   30.805112   {txt}R-squared       ={res}    0.0705
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0701
+{txt}       Total {c |} {res} 74367.9674     2,245  33.1260434   {txt}Root MSE        =   {res} 5.5502
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        wage{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}ttl_exp {c |}{col 14}{res}{space 2} .3314291{col 26}{space 2} .0254087{col 37}{space 1}   13.04{col 46}{space 3}0.000{col 54}{space 4} .2816021{col 67}{space 3} .3812562
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.612492{col 26}{space 2} .3393469{col 37}{space 1}   10.65{col 46}{space 3}0.000{col 54}{space 4} 2.947026{col 67}{space 3} 4.277959
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *1B 
+. generate ttl_exp_decade = ttl_exp / 10 // Changing units proved by creating a new variable
+{txt}
+{com}. reg wage ttl_exp_decade
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,246
+{txt}{hline 13}{c +}{hline 34}   F(1, 2244)      = {res}   170.14
+{txt}       Model {c |} {res} 5241.29609         1  5241.29609   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 69126.6713     2,244   30.805112   {txt}R-squared       ={res}    0.0705
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0701
+{txt}       Total {c |} {res} 74367.9674     2,245  33.1260434   {txt}Root MSE        =   {res} 5.5502
+
+{txt}{hline 15}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          wage{col 16}{c |} Coefficient{col 28}  Std. err.{col 40}      t{col 48}   P>|t|{col 56}     [95% con{col 69}f. interval]
+{hline 15}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+ttl_exp_decade {c |}{col 16}{res}{space 2} 3.314291{col 28}{space 2} .2540872{col 39}{space 1}   13.04{col 48}{space 3}0.000{col 56}{space 4} 2.816021{col 69}{space 3} 3.812562
+{txt}{space 9}_cons {c |}{col 16}{res}{space 2} 3.612492{col 28}{space 2} .3393469{col 39}{space 1}   10.65{col 48}{space 3}0.000{col 56}{space 4} 2.947026{col 69}{space 3} 4.277959
+{txt}{hline 15}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *1C
+. generate wage_weekly = wage*40 // 8 hours a day, 5 days = 40hr work week
+{txt}
+{com}. reg wage_weekly ttl_exp
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,246
+{txt}{hline 13}{c +}{hline 34}   F(1, 2244)      = {res}   170.14
+{txt}       Model {c |} {res} 8386073.73         1  8386073.73   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  110602676     2,244  49288.1801   {txt}R-squared       ={res}    0.0705
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0701
+{txt}       Total {c |} {res}  118988750     2,245  53001.6703   {txt}Root MSE        =   {res} 222.01
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} wage_weekly{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}ttl_exp {c |}{col 14}{res}{space 2} 13.25717{col 26}{space 2} 1.016349{col 37}{space 1}   13.04{col 46}{space 3}0.000{col 54}{space 4} 11.26408{col 67}{space 3} 15.25025
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 144.4997{col 26}{space 2} 13.57388{col 37}{space 1}   10.65{col 46}{space 3}0.000{col 54}{space 4}  117.881{col 67}{space 3} 171.1184
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. *QUESTION 2
+. 
+. use "${c -(}classpath{c )-}tracking.dta", clear
+{txt}
+{com}. *2A
+. describe, short
+
+{txt}Contains data from {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/tracking.dta
+{txt} Observations:{res}         6,431                  
+{txt}    Variables:{res}            13                  21 Oct 2022 19:58
+{txt}Sorted by: 
+
+{com}. 
+. *2B
+. codebook schoolid
+
+{txt}{hline}
+{res}schoolid{right:ID of primary school}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}430{txt},{res}1020{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}111{col 51}{txt}Missing .: {res}0{txt}/{res}6,431
+
+{txt}{col 19}Mean: {res}{ralign 7:776.686}
+{txt}{col 14}Std. dev.: {res}{ralign 7:174.801}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:485}{ralign 10:     687}{ralign 10:     790}{ralign 10:     938}{ralign 10:     974}
+{txt}
+{com}. distinct schoolid
+
+{txt}{col 11}{c |}        Observations
+{col 11}{c |}      total   distinct
+{hline 10}{c +}{hline 22}
+ schoolid {c |}  {res}     6431        111
+{txt}
+{com}. 
+. *2C
+. bysort schoolid: gen order = _n //should generate the same number for all values of schoolid
+{txt}
+{com}. 
+. sum schoolid if order == 1
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 4}schoolid {c |}{res}        111    777.8559    173.8787        430       1020
+{txt}
+{com}. 
+. *    Variable |        Obs        Mean    Std. dev.       Min        Max
+. *-------------+---------------------------------------------------------
+. *    schoolid |        111    777.8559    173.8787        430       1020
+. 
+. tab tracked if order == 1 //tab track should then show school level
+
+     {txt}school {c |}
+assigned to {c |}
+      track {c |}
+   students {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         51       45.95       45.95
+{txt}          1 {c |}{res}         60       54.05      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        111      100.00
+{txt}
+{com}. 
+. *     school |
+. *assigned to |
+. *      track |
+. *   students |      Freq.     Percent        Cum.
+. *------------+-----------------------------------
+. *          0 |         51       45.95       45.95
+. *          1 |         60       54.05      100.00
+. *------------+-----------------------------------
+. *      Total |        111      100.00
+. 
+. *2D
+. reg female tracked, cluster(schoolid) // reg baseline characteristic (Y) x variable (X), clustered at the school level
+
+{txt}Linear regression                               Number of obs     = {res}     6,431
+                                                {txt}F(1, 110)         =  {res}     0.17
+                                                {txt}Prob > F          = {res}    0.6844
+                                                {txt}R-squared         = {res}    0.0000
+                                                {txt}Root MSE          =    {res} .50002
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      female{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .0051266{col 26}{space 2} .0125799{col 37}{space 1}    0.41{col 46}{space 3}0.684{col 54}{space 4}-.0198039{col 67}{space 3} .0300571
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}   .48989{col 26}{space 2} .0092499{col 37}{space 1}   52.96{col 46}{space 3}0.000{col 54}{space 4} .4715589{col 67}{space 3} .5082212
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. // can also look at the difference without clustering: reg female tracked
+. 
+. 
+. *QUESTION 3
+. 
+. *3A
+. // variable that represents missing values as 1
+. generate missing_scores = 0 
+{txt}
+{com}. replace missing_scores = 1 if score_lit_30months ==. | score_math_30months ==.
+{txt}(1,408 real changes made)
+
+{com}. tab missing_scores
+
+{txt}missing_sco {c |}
+        res {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      5,023       78.11       78.11
+{txt}          1 {c |}{res}      1,408       21.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      6,431      100.00
+{txt}
+{com}. 
+. reg missing_scores tracked
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     6,431
+{txt}{hline 13}{c +}{hline 34}   F(1, 6429)      = {res}     0.12
+{txt}       Model {c |} {res} .021316488         1  .021316488   {txt}Prob > F        ={res}    0.7241
+{txt}    Residual {c |} {res} 1099.71185     6,429  .171054884   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0001
+{txt}       Total {c |} {res} 1099.73317     6,430  .171031597   {txt}Root MSE        =   {res} .41359
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}missing_sc~s{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2}-.0036692{col 26}{space 2} .0103941{col 37}{space 1}   -0.35{col 46}{space 3}0.724{col 54}{space 4}-.0240451{col 67}{space 3} .0167066
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2210004{col 26}{space 2} .0077897{col 37}{space 1}   28.37{col 46}{space 3}0.000{col 54}{space 4}   .20573{col 67}{space 3} .2362707
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. // variable that represents missing values as 0
+. generate complete_scores = 1
+{txt}
+{com}. replace complete_scores = 0 if score_lit_30months ==. | score_math_30months ==.
+{txt}(1,408 real changes made)
+
+{com}. tab complete_scores
+
+{txt}complete_sc {c |}
+       ores {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,408       21.89       21.89
+{txt}          1 {c |}{res}      5,023       78.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      6,431      100.00
+{txt}
+{com}. 
+. reg complete_scores tracked
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     6,431
+{txt}{hline 13}{c +}{hline 34}   F(1, 6429)      = {res}     0.12
+{txt}       Model {c |} {res} .021316488         1  .021316488   {txt}Prob > F        ={res}    0.7241
+{txt}    Residual {c |} {res} 1099.71185     6,429  .171054884   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0001
+{txt}       Total {c |} {res} 1099.73317     6,430  .171031597   {txt}Root MSE        =   {res} .41359
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}complete_s~s{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .0036692{col 26}{space 2} .0103941{col 37}{space 1}    0.35{col 46}{space 3}0.724{col 54}{space 4}-.0167066{col 67}{space 3} .0240451
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7789996{col 26}{space 2} .0077897{col 37}{space 1}  100.00{col 46}{space 3}0.000{col 54}{space 4} .7637293{col 67}{space 3}   .79427
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //can also do it clustered: reg missing_scores tracked, cluster(schoolid)
+. 
+. *3B
+. count if complete_scores ==1
+  {res}5,023
+{txt}
+{com}. 
+. distinct schoolid if complete_scores ==1
+
+{txt}{col 11}{c |}        Observations
+{col 11}{c |}      total   distinct
+{hline 10}{c +}{hline 22}
+ schoolid {c |}  {res}     5023        111
+{txt}
+{com}. 
+. sum score_math_30months if complete_scores ==1
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+s~h_30months {c |}{res}      5,023    1.31e-09           1  -2.091329   2.550627
+{txt}
+{com}. 
+. 
+. *QUESTION 4
+. 
+. drop if complete_scores ==0 // remove observations with missing data
+{txt}(1,408 observations deleted)
+
+{com}. *4A
+. reg score_lit_30months tracked, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     5,023
+                                                {txt}F(1, 110)         =  {res}     3.98
+                                                {txt}Prob > F          = {res}    0.0486
+                                                {txt}R-squared         = {res}    0.0057
+                                                {txt}Root MSE          =    {res} .99727
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~t_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1521231{col 26}{space 2} .0762934{col 37}{space 1}    1.99{col 46}{space 3}0.049{col 54}{space 4} .0009274{col 67}{space 3} .3033187
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0845058{col 26}{space 2} .0561763{col 37}{space 1}   -1.50{col 46}{space 3}0.135{col 54}{space 4} -.195834{col 67}{space 3} .0268224
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *4B
+. reg score_lit_30months tracked
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     5,023
+{txt}{hline 13}{c +}{hline 34}   F(1, 5021)      = {res}    28.76
+{txt}       Model {c |} {res} 28.6012552         1  28.6012552   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 4993.59245     5,021  .994541417   {txt}R-squared       ={res}    0.0057
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0055
+{txt}       Total {c |} {res} 5022.19371     5,022  1.00003857   {txt}Root MSE        =   {res} .99727
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}s~t_30months{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1521231{col 26}{space 2}  .028367{col 37}{space 1}    5.36{col 46}{space 3}0.000{col 54}{space 4} .0965113{col 67}{space 3} .2077348
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0845058{col 26}{space 2} .0212812{col 37}{space 1}   -3.97{col 46}{space 3}0.000{col 54}{space 4}-.1262262{col 67}{space 3}-.0427855
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. *********
+. *       2: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework5_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 3 Nov 2023, 15:56:21
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

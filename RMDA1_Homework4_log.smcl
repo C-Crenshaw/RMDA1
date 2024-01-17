@@ -1,0 +1,144 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework4_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}23 Oct 2023, 23:52:35
+{txt}
+{com}.         
+.         use "${c -(}classpath{c )-}fertility.dta", clear
+{txt}
+{com}.         
+. *********
+. *       1: Homework Code
+. *********
+. 
+. *QUESTION 2
+.         *AI.
+.         describe, short
+
+{txt}Contains data from {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/fertility.dta
+{txt} Observations:{res}           749                  
+{txt}    Variables:{res}            80                  11 Oct 2022 15:41
+{txt}Sorted by: {res}respondentid
+{txt}
+{com}.                 
+.         *AII. 
+.         tab voucher_individual, mi //no missing values
+
+    {txt}voucher was {c |}
+    distributed {c |}
+   privately to {c |}
+       the wife {c |}      Freq.     Percent        Cum.
+{hline 16}{c +}{hline 35}
+             No {c |}{res}        371       49.53       49.53
+{txt}            Yes {c |}{res}        378       50.47      100.00
+{txt}{hline 16}{c +}{hline 35}
+          Total {c |}{res}        749      100.00
+{txt}
+{com}.         
+.         *BI. // reg baseline characteristic x variable
+.         reg electric voucher_individual
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       749
+{txt}{hline 13}{c +}{hline 34}   F(1, 747)       = {res}     0.29
+{txt}       Model {c |} {res}  .06914647         1   .06914647   {txt}Prob > F        ={res}    0.5921
+{txt}    Residual {c |} {res}  179.77064       747  .240656814   {txt}R-squared       ={res}    0.0004
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0010
+{txt}       Total {c |} {res} 179.839786       748  .240427522   {txt}Root MSE        =   {res} .49057
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          electric{col 20}{c |} Coefficient{col 32}  Std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+voucher_individual {c |}{col 20}{res}{space 2} .0192173{col 32}{space 2} .0358515{col 43}{space 1}    0.54{col 52}{space 3}0.592{col 60}{space 4}-.0511643{col 73}{space 3}  .089599
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2} .3908356{col 32}{space 2}  .025469{col 43}{space 1}   15.35{col 52}{space 3}0.000{col 60}{space 4} .3408362{col 73}{space 3} .4408349
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}.         
+.         // check if this is correct by running a t-test
+.         // ttest electric, by(voucher_individual)
+.         
+.         *B2II 
+.         reg timesincelastbirth voucher_individual
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       743
+{txt}{hline 13}{c +}{hline 34}   F(1, 741)       = {res}     0.38
+{txt}       Model {c |} {res}  14.065703         1   14.065703   {txt}Prob > F        ={res}    0.5362
+{txt}    Residual {c |} {res} 27210.5184       741  36.7213474   {txt}R-squared       ={res}    0.0005
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0008
+{txt}       Total {c |} {res} 27224.5841       742  36.6908142   {txt}Root MSE        =   {res} 6.0598
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}timesincelastbirth{col 20}{c |} Coefficient{col 32}  Std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+voucher_individual {c |}{col 20}{res}{space 2} .2752098{col 32}{space 2} .4446748{col 43}{space 1}    0.62{col 52}{space 3}0.536{col 60}{space 4}-.5977626{col 73}{space 3} 1.148182
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2} 15.29508{col 32}{space 2} .3167516{col 43}{space 1}   48.29{col 52}{space 3}0.000{col 60}{space 4} 14.67324{col 73}{space 3} 15.91692
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}.         
+.         *CI. // reg Y(outcome of treatment) X
+.         reg used_voucher voucher_individual
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       749
+{txt}{hline 13}{c +}{hline 34}   F(1, 747)       = {res}     7.64
+{txt}       Model {c |} {res} 1.89220195         1  1.89220195   {txt}Prob > F        ={res}    0.0059
+{txt}    Residual {c |} {res} 185.037037       747  .247706877   {txt}R-squared       ={res}    0.0101
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0088
+{txt}       Total {c |} {res} 186.929239       748    .2499054   {txt}Root MSE        =   {res}  .4977
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      used_voucher{col 20}{c |} Coefficient{col 32}  Std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+voucher_individual {c |}{col 20}{res}{space 2} .1005291{col 32}{space 2} .0363728{col 43}{space 1}    2.76{col 52}{space 3}0.006{col 60}{space 4}  .029124{col 73}{space 3} .1719342
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2} .4285714{col 32}{space 2} .0258394{col 43}{space 1}   16.59{col 52}{space 3}0.000{col 60}{space 4}  .377845{col 73}{space 3} .4792979
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}.         
+.         *CII.
+.         reg used_injectable voucher_individual
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       749
+{txt}{hline 13}{c +}{hline 34}   F(1, 747)       = {res}     4.04
+{txt}       Model {c |} {res} .676241044         1  .676241044   {txt}Prob > F        ={res}    0.0449
+{txt}    Residual {c |} {res} 125.144854       747  .167529925   {txt}R-squared       ={res}    0.0054
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0040
+{txt}       Total {c |} {res} 125.821095       748   .16821002   {txt}Root MSE        =   {res}  .4093
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   used_injectable{col 20}{c |} Coefficient{col 32}  Std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+voucher_individual {c |}{col 20}{res}{space 2} .0600978{col 32}{space 2} .0299126{col 43}{space 1}    2.01{col 52}{space 3}0.045{col 60}{space 4} .0013751{col 73}{space 3} .1188206
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2} .1832884{col 32}{space 2}   .02125{col 43}{space 1}    8.63{col 52}{space 3}0.000{col 60}{space 4} .1415716{col 73}{space 3} .2250053
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}.         
+.         *CIII.
+.         reg birth_year1 voucher_individual
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       749
+{txt}{hline 13}{c +}{hline 34}   F(1, 747)       = {res}     2.43
+{txt}       Model {c |} {res} .145771348         1  .145771348   {txt}Prob > F        ={res}    0.1193
+{txt}    Residual {c |} {res} 44.7781272       747  .059943945   {txt}R-squared       ={res}    0.0032
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0019
+{txt}       Total {c |} {res} 44.9238985       748  .060058688   {txt}Root MSE        =   {res} .24483
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       birth_year1{col 20}{c |} Coefficient{col 32}  Std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+voucher_individual {c |}{col 20}{res}{space 2}-.0279026{col 32}{space 2} .0178929{col 43}{space 1}   -1.56{col 52}{space 3}0.119{col 60}{space 4}-.0630289{col 73}{space 3} .0072238
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2} .0781671{col 32}{space 2} .0127112{col 43}{space 1}    6.15{col 52}{space 3}0.000{col 60}{space 4} .0532132{col 73}{space 3}  .103121
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *********
+. *       2: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework4_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}23 Oct 2023, 23:52:35
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

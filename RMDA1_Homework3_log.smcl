@@ -1,0 +1,179 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework3_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}29 Sep 2023, 16:23:42
+{txt}
+{com}. 
+.         
+. *********
+. *       1: Homework Code
+. *********
+. 
+.         **2d**
+.         power twoprop 0.08, n1(7950) n2(7971) alpha(0.05) beta(0.2) direction(upper)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated experimental-group proportion for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}{txt}; {bind:p2 > p1}
+
+{txt}Study parameters:
+
+{txt}{ralign 16:alpha = }{res}   0.0500
+{txt}{ralign 16:beta = }{res}   0.2000
+{txt}{ralign 16:N = }{res}   15,921
+{txt}{ralign 16:N1 = }{res}    7,950
+{txt}{ralign 16:N2 = }{res}    7,971
+{txt}{ralign 16:N2/N1 = }{res}   1.0026
+{txt}{ralign 16:p1 = }{res}   0.0800
+
+{p}{txt}Estimated effect size and  experimental-group proportion:{p_end}
+
+{txt}{ralign 16:delta = }{res}   0.0125{txt}  (difference)
+{txt}{ralign 16:p2 = }{res}   0.0925
+{txt}
+{com}.         
+.         **3c**
+.         power twoprop 0.14, n1(7950) n2(7971) alpha(0.05) beta(0.2) direction(upper)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated experimental-group proportion for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}{txt}; {bind:p2 > p1}
+
+{txt}Study parameters:
+
+{txt}{ralign 16:alpha = }{res}   0.0500
+{txt}{ralign 16:beta = }{res}   0.2000
+{txt}{ralign 16:N = }{res}   15,921
+{txt}{ralign 16:N1 = }{res}    7,950
+{txt}{ralign 16:N2 = }{res}    7,971
+{txt}{ralign 16:N2/N1 = }{res}   1.0026
+{txt}{ralign 16:p1 = }{res}   0.1400
+
+{p}{txt}Estimated effect size and  experimental-group proportion:{p_end}
+
+{txt}{ralign 16:delta = }{res}   0.0158{txt}  (difference)
+{txt}{ralign 16:p2 = }{res}   0.1558
+{txt}
+{com}.         
+.         **3d**
+.         power twoprop 0.14, n1(7950) n2(7971) alpha(0.01) beta(0.2) direction(upper)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated experimental-group proportion for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}{txt}; {bind:p2 > p1}
+
+{txt}Study parameters:
+
+{txt}{ralign 16:alpha = }{res}   0.0100
+{txt}{ralign 16:beta = }{res}   0.2000
+{txt}{ralign 16:N = }{res}   15,921
+{txt}{ralign 16:N1 = }{res}    7,950
+{txt}{ralign 16:N2 = }{res}    7,971
+{txt}{ralign 16:N2/N1 = }{res}   1.0026
+{txt}{ralign 16:p1 = }{res}   0.1400
+
+{p}{txt}Estimated effect size and  experimental-group proportion:{p_end}
+
+{txt}{ralign 16:delta = }{res}   0.0193{txt}  (difference)
+{txt}{ralign 16:p2 = }{res}   0.1593
+{txt}
+{com}.         
+.         **3e**
+.         power twoprop 0.14 0.1558, alpha(0.01) beta(0.2)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated sample sizes for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}
+
+{txt}Study parameters:
+
+{txt}{ralign 16:alpha = }{res}   0.0100
+{txt}{ralign 16:beta = }{res}   0.2000
+{txt}{ralign 16:delta = }{res}   0.0158{txt}  (difference)
+{txt}{ralign 16:p1 = }{res}   0.1400
+{txt}{ralign 16:p2 = }{res}   0.1558
+
+{p}{txt}Estimated sample sizes:{p_end}
+
+{txt}{ralign 16:N = }{res}   23,582
+{txt}{ralign 16:N per group = }{res}   11,791
+{txt}
+{com}.         
+.         **3f**
+.         power twoprop 0.14 0.15, alpha(0.01) beta(0.2)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated sample sizes for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}
+
+{txt}Study parameters:
+
+{txt}{ralign 16:alpha = }{res}   0.0100
+{txt}{ralign 16:beta = }{res}   0.2000
+{txt}{ralign 16:delta = }{res}   0.0100{txt}  (difference)
+{txt}{ralign 16:p1 = }{res}   0.1400
+{txt}{ralign 16:p2 = }{res}   0.1500
+
+{p}{txt}Estimated sample sizes:{p_end}
+
+{txt}{ralign 16:N = }{res}   57,914
+{txt}{ralign 16:N per group = }{res}   28,957
+{txt}
+{com}.         
+.         power twoprop 0.14, n(1000(2500)60000) alpha(0.01) beta(0.2)
+{res}
+{txt}Performing iteration ...
+{res}
+{p 0 2 2}{txt}Estimated experimental-group proportion for a two-sample proportions test{p_end}{txt}Pearson's chi-squared test 
+{txt}{txt}{bind:H0: p2 = p1}  {txt}versus  {bind:Ha: p2 != p1}{txt}; {bind:p2 > p1}
+
+  {txt}{c TLC}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 1}{c TRC}
+  {txt}{c |}{txt}{txt}{ralign 8:alpha}{txt}{txt}{ralign 8:beta}{txt}{txt}{ralign 8:N}{txt}{txt}{ralign 8:N1}{txt}{txt}{ralign 8:N2}{txt}{txt}{ralign 8:delta}{txt}{txt}{ralign 8:p1}{txt}{txt}{ralign 8:p2}{txt}{txt} {c |}
+  {txt}{c LT}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 1}{c RT}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:1,000}{res}{ralign 8:500}{res}{ralign 8:500}{res}{ralign 8:.08321}{res}{ralign 8:.14}{res}{ralign 8:.2232}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:3,500}{res}{ralign 8:1,750}{res}{ralign 8:1,750}{res}{ralign 8:.04247}{res}{ralign 8:.14}{res}{ralign 8:.1825}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:6,000}{res}{ralign 8:3,000}{res}{ralign 8:3,000}{res}{ralign 8:.03201}{res}{ralign 8:.14}{res}{ralign 8:.172}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:8,500}{res}{ralign 8:4,250}{res}{ralign 8:4,250}{res}{ralign 8:.02671}{res}{ralign 8:.14}{res}{ralign 8:.1667}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:11000}{res}{ralign 8:5,500}{res}{ralign 8:5,500}{res}{ralign 8:.02337}{res}{ralign 8:.14}{res}{ralign 8:.1634}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:13500}{res}{ralign 8:6,750}{res}{ralign 8:6,750}{res}{ralign 8:.02103}{res}{ralign 8:.14}{res}{ralign 8:.161}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:16000}{res}{ralign 8:8,000}{res}{ralign 8:8,000}{res}{ralign 8:.01927}{res}{ralign 8:.14}{res}{ralign 8:.1593}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:18500}{res}{ralign 8:9,250}{res}{ralign 8:9,250}{res}{ralign 8:.01789}{res}{ralign 8:.14}{res}{ralign 8:.1579}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:21000}{res}{ralign 8:10500}{res}{ralign 8:10500}{res}{ralign 8:.01677}{res}{ralign 8:.14}{res}{ralign 8:.1568}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:23500}{res}{ralign 8:11750}{res}{ralign 8:11750}{res}{ralign 8:.01583}{res}{ralign 8:.14}{res}{ralign 8:.1558}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:26000}{res}{ralign 8:13000}{res}{ralign 8:13000}{res}{ralign 8:.01503}{res}{ralign 8:.14}{res}{ralign 8:.155}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:28500}{res}{ralign 8:14250}{res}{ralign 8:14250}{res}{ralign 8:.01434}{res}{ralign 8:.14}{res}{ralign 8:.1543}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:31000}{res}{ralign 8:15500}{res}{ralign 8:15500}{res}{ralign 8:.01374}{res}{ralign 8:.14}{res}{ralign 8:.1537}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:33500}{res}{ralign 8:16750}{res}{ralign 8:16750}{res}{ralign 8:.01321}{res}{ralign 8:.14}{res}{ralign 8:.1532}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:36000}{res}{ralign 8:18000}{res}{ralign 8:18000}{res}{ralign 8:.01273}{res}{ralign 8:.14}{res}{ralign 8:.1527}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:38500}{res}{ralign 8:19250}{res}{ralign 8:19250}{res}{ralign 8:.0123}{res}{ralign 8:.14}{res}{ralign 8:.1523}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:41000}{res}{ralign 8:20500}{res}{ralign 8:20500}{res}{ralign 8:.01192}{res}{ralign 8:.14}{res}{ralign 8:.1519}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:43500}{res}{ralign 8:21750}{res}{ralign 8:21750}{res}{ralign 8:.01156}{res}{ralign 8:.14}{res}{ralign 8:.1516}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:46000}{res}{ralign 8:23000}{res}{ralign 8:23000}{res}{ralign 8:.01124}{res}{ralign 8:.14}{res}{ralign 8:.1512}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:48500}{res}{ralign 8:24250}{res}{ralign 8:24250}{res}{ralign 8:.01094}{res}{ralign 8:.14}{res}{ralign 8:.1509}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:51000}{res}{ralign 8:25500}{res}{ralign 8:25500}{res}{ralign 8:.01067}{res}{ralign 8:.14}{res}{ralign 8:.1507}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:53500}{res}{ralign 8:26750}{res}{ralign 8:26750}{res}{ralign 8:.01041}{res}{ralign 8:.14}{res}{ralign 8:.1504}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:56000}{res}{ralign 8:28000}{res}{ralign 8:28000}{res}{ralign 8:.01017}{res}{ralign 8:.14}{res}{ralign 8:.1502}{txt} {c |}
+  {txt}{c |}{res}{ralign 8:.01}{res}{ralign 8:.2}{res}{ralign 8:58500}{res}{ralign 8:29250}{res}{ralign 8:29250}{res}{ralign 8:.00995}{res}{ralign 8:.14}{res}{ralign 8:.1499}{txt} {c |}
+  {txt}{c BLC}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 8}{txt}{txt}{hline 1}{c BRC}
+
+{com}.         
+. 
+. *********
+. *       2: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework3_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}29 Sep 2023, 16:23:42
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

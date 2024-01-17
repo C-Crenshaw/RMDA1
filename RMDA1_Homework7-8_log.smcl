@@ -1,0 +1,193 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework7-8_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 4 Dec 2023, 23:22:31
+{txt}
+{com}.         
+. *********
+. *       1: Homework Code
+. *********
+. 
+. use "${c -(}classpath{c )-}star.dta", clear
+{txt}
+{com}. 
+. *QUESTION 5
+. *5B
+. *How old were students in regular classes, on average, when they started kindergarten?
+. summarize age if class_small==0
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}      2,190    5.428768    .3505773        3.8   7.665753
+{txt}
+{com}. *Estimate the difference in average age for students in small classes
+. reg age class_small, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     4,086
+                                                {txt}F(1, 225)         =  {res}     1.66
+                                                {txt}Prob > F          = {res}    0.1988
+                                                {txt}R-squared         = {res}    0.0005
+                                                {txt}Root MSE          =    {res} .34961
+
+{txt}{ralign 78:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         age{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}class_small {c |}{col 14}{res}{space 2}  .016362{col 26}{space 2} .0126956{col 37}{space 1}    1.29{col 46}{space 3}0.199{col 54}{space 4}-.0086556{col 67}{space 3} .0413795
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.428768{col 26}{space 2} .0086348{col 37}{space 1}  628.71{col 46}{space 3}0.000{col 54}{space 4} 5.411753{col 67}{space 3} 5.445784
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *5C
+. *Covariate balance test with subsidized lunch receipts instead of age
+. reg lunch class_small, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     4,079
+                                                {txt}F(1, 225)         =  {res}     0.03
+                                                {txt}Prob > F          = {res}    0.8684
+                                                {txt}R-squared         = {res}    0.0000
+                                                {txt}Root MSE          =    {res} .49946
+
+{txt}{ralign 78:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       lunch{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}class_small {c |}{col 14}{res}{space 2} -.006436{col 26}{space 2} .0388081{col 37}{space 1}   -0.17{col 46}{space 3}0.868{col 54}{space 4}-.0829098{col 67}{space 3} .0700378
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4773663{col 26}{space 2} .0298935{col 37}{space 1}   15.97{col 46}{space 3}0.000{col 54}{space 4} .4184592{col 67}{space 3} .5362733
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *QUESTION 6
+. *6A
+. *What was the average reading score of students in regular classes?
+. summarize score_read if class_small==0
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}score_read {c |}{res}      2,006   -.0628594    .9757032  -3.839158    6.00117
+{txt}
+{com}. 
+. *6B
+. *Estimate the effect of small classes on students' reading scores
+. reg score_read class_small, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     3,745
+                                                {txt}F(1, 225)         =  {res}     5.77
+                                                {txt}Prob > F          = {res}    0.0172
+                                                {txt}R-squared         = {res}    0.0083
+                                                {txt}Root MSE          =    {res} .99887
+
+{txt}{ralign 78:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  score_read{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}class_small {c |}{col 14}{res}{space 2} .1834066{col 26}{space 2} .0763812{col 37}{space 1}    2.40{col 46}{space 3}0.017{col 54}{space 4} .0328927{col 67}{space 3} .3339205
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0628594{col 26}{space 2}  .055961{col 37}{space 1}   -1.12{col 46}{space 3}0.263{col 54}{space 4}-.1731342{col 67}{space 3} .0474153
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *6C
+. *Add the baseline covariates from Question 5 (lunch, age) to tbe regression
+. reg score_read class_small age lunch, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     3,731
+                                                {txt}F(3, 225)         =  {res}    37.69
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0814
+                                                {txt}Root MSE          =    {res} .96283
+
+{txt}{ralign 78:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  score_read{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}class_small {c |}{col 14}{res}{space 2} .1819962{col 26}{space 2} .0731539{col 37}{space 1}    2.49{col 46}{space 3}0.014{col 54}{space 4} .0378418{col 67}{space 3} .3261507
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .1377372{col 26}{space 2} .0472703{col 37}{space 1}    2.91{col 46}{space 3}0.004{col 54}{space 4} .0445881{col 67}{space 3} .2308863
+{txt}{space 7}lunch {c |}{col 14}{res}{space 2}-.5344381{col 26}{space 2} .0511756{col 37}{space 1}  -10.44{col 46}{space 3}0.000{col 54}{space 4}-.6352829{col 67}{space 3}-.4335934
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.5581526{col 26}{space 2} .2695105{col 37}{space 1}   -2.07{col 46}{space 3}0.040{col 54}{space 4} -1.08924{col 67}{space 3} -.027065
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *QUESTION 7
+. *7B
+. *Generate a dummy variable that identifies first-year teachers (no teaching experience)
+. *If the variable = 1, the teacher has no experience/is a first year teacher 
+. generate first_year_teach = 0 
+{txt}
+{com}. replace first_year_teach = 1 if tch_exp == 0
+{txt}(188 real changes made)
+
+{com}. 
+. distinct id_teacher if first_year_teach == 1 // Counting the teachers only once (because the dataset is organized by student, teachers are repeated)
+
+{txt}{col 13}{c |}        Observations
+{col 13}{c |}      total   distinct
+{hline 12}{c +}{hline 22}
+ id_teacher {c |}  {res}      188         10
+{txt}
+{com}. 
+. *7C
+. * testscore = B0 + B1(class size) + B2(dummy teach experience) + B3(interaction)
+. gen class_teach_interaction_dummy = class_small * first_year_teach
+{txt}
+{com}. reg score_read class_small first_year_teach class_teach_interaction_dummy, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     3,745
+                                                {txt}F(3, 225)         =  {res}     2.61
+                                                {txt}Prob > F          = {res}    0.0521
+                                                {txt}R-squared         = {res}    0.0093
+                                                {txt}Root MSE          =    {res} .99866
+
+{txt}{ralign 95:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 30}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 31}{c |}{col 43}    Robust
+{col 1}                   score_read{col 31}{c |} Coefficient{col 43}  std. err.{col 55}      t{col 63}   P>|t|{col 71}     [95% con{col 84}f. interval]
+{hline 30}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 18}class_small {c |}{col 31}{res}{space 2} .1760589{col 43}{space 2} .0791889{col 54}{space 1}    2.22{col 63}{space 3}0.027{col 71}{space 4} .0200123{col 84}{space 3} .3321056
+{txt}{space 13}first_year_teach {c |}{col 31}{res}{space 2}-.0049543{col 43}{space 2}  .103832{col 54}{space 1}   -0.05{col 63}{space 3}0.962{col 71}{space 4}-.2095619{col 84}{space 3} .1996534
+{txt}class_teach_interaction_dummy {c |}{col 31}{res}{space 2} .3047672{col 43}{space 2} .3236309{col 54}{space 1}    0.94{col 63}{space 3}0.347{col 71}{space 4} -.332968{col 84}{space 3} .9425023
+{txt}{space 24}_cons {c |}{col 31}{res}{space 2}-.0625804{col 43}{space 2} .0590988{col 54}{space 1}   -1.06{col 63}{space 3}0.291{col 71}{space 4}-.1790383{col 84}{space 3} .0538776
+{txt}{hline 30}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *7D
+. * testscore = B0 + B1(class size) + B2(teach experience) + B3(interaction)
+. gen class_teach_interaction = class_small * tch_exp
+{txt}
+{com}. reg score_read class_small tch_exp class_teach_interaction, cluster(id_class)
+
+{txt}Linear regression                               Number of obs     = {res}     3,745
+                                                {txt}F(3, 225)         =  {res}     5.33
+                                                {txt}Prob > F          = {res}    0.0015
+                                                {txt}R-squared         = {res}    0.0187
+                                                {txt}Root MSE          =    {res} .99388
+
+{txt}{ralign 89:(Std. err. adjusted for {res:226} clusters in {res:id_class})}
+{hline 24}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 25}{c |}{col 37}    Robust
+{col 1}             score_read{col 25}{c |} Coefficient{col 37}  std. err.{col 49}      t{col 57}   P>|t|{col 65}     [95% con{col 78}f. interval]
+{hline 24}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 12}class_small {c |}{col 25}{res}{space 2} .3152922{col 37}{space 2} .1312002{col 48}{space 1}    2.40{col 57}{space 3}0.017{col 65}{space 4} .0567539{col 78}{space 3} .5738306
+{txt}{space 16}tch_exp {c |}{col 25}{res}{space 2} .0230837{col 37}{space 2} .0084794{col 48}{space 1}    2.72{col 57}{space 3}0.007{col 65}{space 4} .0063746{col 78}{space 3} .0397928
+{txt}class_teach_interaction {c |}{col 25}{res}{space 2}-.0144693{col 37}{space 2} .0121782{col 48}{space 1}   -1.19{col 57}{space 3}0.236{col 65}{space 4}-.0384672{col 78}{space 3} .0095287
+{txt}{space 18}_cons {c |}{col 25}{res}{space 2}-.2722352{col 37}{space 2} .0883081{col 48}{space 1}   -3.08{col 57}{space 3}0.002{col 65}{space 4}-.4462518{col 78}{space 3}-.0982185
+{txt}{hline 24}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *********
+. *       2: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework7-8_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 4 Dec 2023, 23:22:31
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,304 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework6_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}17 Nov 2023, 15:21:46
+{txt}
+{com}.         
+. *********
+. *       1: Homework Code
+. *********
+. 
+. use "${c -(}classpath{c )-}tracking.dta", clear
+{txt}
+{com}. 
+. *QUESTION 1
+. *1A
+. // Recreate dummy for missing values (as represented by 1)
+. generate missing_scores = 0 
+{txt}
+{com}. replace missing_scores = 1 if score_lit_30months ==. | score_math_30months ==.
+{txt}(1,408 real changes made)
+
+{com}. 
+. drop if missing_scores == 1 // remove observations with missing data
+{txt}(1,408 observations deleted)
+
+{com}. 
+. reg score_math_30months tracked, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     5,023
+                                                {txt}F(1, 110)         =  {res}     3.63
+                                                {txt}Prob > F          = {res}    0.0594
+                                                {txt}R-squared         = {res}    0.0034
+                                                {txt}Root MSE          =    {res}  .9984
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~h_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1176209{col 26}{space 2} .0617365{col 37}{space 1}    1.91{col 46}{space 3}0.059{col 54}{space 4}-.0047264{col 67}{space 3} .2399682
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0661984{col 26}{space 2}  .044971{col 37}{space 1}   -1.47{col 46}{space 3}0.144{col 54}{space 4}-.1553203{col 67}{space 3} .0229236
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *1B
+. reg score_math_30months tracked female, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     5,023
+                                                {txt}F(2, 110)         =  {res}     2.77
+                                                {txt}Prob > F          = {res}    0.0673
+                                                {txt}R-squared         = {res}    0.0039
+                                                {txt}Root MSE          =    {res} .99827
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~h_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1170471{col 26}{space 2} .0618204{col 37}{space 1}    1.89{col 46}{space 3}0.061{col 54}{space 4}-.0054663{col 67}{space 3} .2395606
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .0423732{col 26}{space 2} .0349877{col 37}{space 1}    1.21{col 46}{space 3}0.228{col 54}{space 4}-.0269642{col 67}{space 3} .1117106
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0865938{col 26}{space 2} .0458755{col 37}{space 1}   -1.89{col 46}{space 3}0.062{col 54}{space 4}-.1775082{col 67}{space 3} .0043206
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *1C
+. reg score_math_30months tracked score_lit_30months, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     5,023
+                                                {txt}F(2, 110)         =  {res}   947.32
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3909
+                                                {txt}Root MSE          =    {res} .78062
+
+{txt}{ralign 84:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32}    Robust
+{col 1}score_math_30mon~s{col 20}{c |} Coefficient{col 32}  std. err.{col 44}      t{col 52}   P>|t|{col 60}     [95% con{col 73}f. interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 11}tracked {c |}{col 20}{res}{space 2} .0226605{col 32}{space 2} .0477735{col 43}{space 1}    0.47{col 52}{space 3}0.636{col 60}{space 4}-.0720153{col 73}{space 3} .1173363
+{txt}score_lit_30months {c |}{col 20}{res}{space 2} .6242342{col 32}{space 2} .0146741{col 43}{space 1}   42.54{col 52}{space 3}0.000{col 60}{space 4} .5951536{col 73}{space 3} .6533148
+{txt}{space 13}_cons {c |}{col 20}{res}{space 2}-.0134469{col 32}{space 2} .0349536{col 43}{space 1}   -0.38{col 52}{space 3}0.701{col 60}{space 4}-.0827168{col 73}{space 3} .0558229
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *1D
+. reg score_math_30months tracked age_base, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     4,875
+                                                {txt}F(2, 110)         =  {res}     8.29
+                                                {txt}Prob > F          = {res}    0.0004
+                                                {txt}R-squared         = {res}    0.0074
+                                                {txt}Root MSE          =    {res} .99327
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~h_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1045249{col 26}{space 2} .0621743{col 37}{space 1}    1.68{col 46}{space 3}0.096{col 54}{space 4}-.0186899{col 67}{space 3} .2277397
+{txt}{space 4}age_base {c |}{col 14}{res}{space 2} .0451316{col 26}{space 2} .0122613{col 37}{space 1}    3.68{col 46}{space 3}0.000{col 54}{space 4} .0208325{col 67}{space 3} .0694306
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.4641756{col 26}{space 2} .1227912{col 37}{space 1}   -3.78{col 46}{space 3}0.000{col 54}{space 4}-.7075189{col 67}{space 3}-.2208322
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. // confirm with a covariate balance test regression:
+. // reg age_base tracked, cluster(schoolid)
+. 
+. 
+. *QUESTION 2
+. *2C
+. *i
+. reg score_math_30months tracked if score_base_bottomhalf == 0, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     2,570
+                                                {txt}F(1, 110)         =  {res}     4.36
+                                                {txt}Prob > F          = {res}    0.0390
+                                                {txt}R-squared         = {res}    0.0061
+                                                {txt}Root MSE          =    {res} .87417
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~h_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1371874{col 26}{space 2} .0656757{col 37}{space 1}    2.09{col 46}{space 3}0.039{col 54}{space 4} .0070336{col 67}{space 3} .2673413
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2876395{col 26}{space 2} .0448724{col 37}{space 1}    6.41{col 46}{space 3}0.000{col 54}{space 4} .1987128{col 67}{space 3} .3765661
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *ii
+. reg score_math_30months tracked if score_base_bottomhalf == 1, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     2,453
+                                                {txt}F(1, 110)         =  {res}     2.64
+                                                {txt}Prob > F          = {res}    0.1068
+                                                {txt}R-squared         = {res}    0.0038
+                                                {txt}Root MSE          =    {res} .97758
+
+{txt}{ralign 78:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}s~h_30months{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}tracked {c |}{col 14}{res}{space 2} .1223352{col 26}{space 2} .0752343{col 37}{space 1}    1.63{col 46}{space 3}0.107{col 54}{space 4}-.0267615{col 67}{space 3} .2714319
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.4509802{col 26}{space 2} .0566526{col 37}{space 1}   -7.96{col 46}{space 3}0.000{col 54}{space 4}-.5632523{col 67}{space 3} -.338708
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *iii
+. gen tracked_bottomhalf = tracked * score_base_bottomhalf
+{txt}
+{com}. reg score_math_30months tracked score_base_bottomhalf tracked_bottomhalf, cluster(schoolid)
+
+{txt}Linear regression                               Number of obs     = {res}     5,023
+                                                {txt}F(3, 110)         =  {res}   187.62
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1428
+                                                {txt}Root MSE          =    {res} .92611
+
+{txt}{ralign 87:(Std. err. adjusted for {res:111} clusters in {res:schoolid})}
+{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 23}{c |}{col 35}    Robust
+{col 1}  score_math_30months{col 23}{c |} Coefficient{col 35}  std. err.{col 47}      t{col 55}   P>|t|{col 63}     [95% con{col 76}f. interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}tracked {c |}{col 23}{res}{space 2} .1371874{col 35}{space 2} .0656826{col 46}{space 1}    2.09{col 55}{space 3}0.039{col 63}{space 4}   .00702{col 76}{space 3} .2673549
+{txt}score_base_bottomhalf {c |}{col 23}{res}{space 2}-.7386196{col 35}{space 2} .0427332{col 46}{space 1}  -17.28{col 55}{space 3}0.000{col 63}{space 4}-.8233068{col 76}{space 3}-.6539325
+{txt}{space 3}tracked_bottomhalf {c |}{col 23}{res}{space 2}-.0148522{col 35}{space 2} .0631805{col 46}{space 1}   -0.24{col 55}{space 3}0.815{col 63}{space 4}-.1400612{col 76}{space 3} .1103568
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .2876395{col 35}{space 2} .0448771{col 46}{space 1}    6.41{col 55}{space 3}0.000{col 63}{space 4} .1987035{col 76}{space 3} .3765754
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. *QUESTION 3
+. 
+. use "${c -(}classpath{c )-}cps17_va.dta", clear
+{txt}
+{com}. 
+. *3A
+. reg htotval hunder18
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,512
+{txt}{hline 13}{c +}{hline 34}   F(1, 1510)      = {res}    17.84
+{txt}       Model {c |} {res} 1.8999e+11         1  1.8999e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.6081e+13     1,510  1.0650e+10   {txt}R-squared       ={res}    0.0117
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0110
+{txt}       Total {c |} {res} 1.6271e+13     1,511  1.0768e+10   {txt}Root MSE        =   {res} 1.0e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     htotval{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}hunder18 {c |}{col 14}{res}{space 2}  10288.7{col 26}{space 2} 2435.886{col 37}{space 1}    4.22{col 46}{space 3}0.000{col 54}{space 4} 5510.616{col 67}{space 3} 15066.78
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 90074.79{col 26}{space 2} 3237.562{col 37}{space 1}   27.82{col 46}{space 3}0.000{col 54}{space 4} 83724.19{col 67}{space 3} 96425.38
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *3B
+. generate married = 0 
+{txt}
+{com}. replace married = 1 if a_maritl == 1 | a_maritl == 2 | a_maritl == 3
+{txt}(715 real changes made)
+
+{com}. 
+. reg htotval hunder18 married
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,512
+{txt}{hline 13}{c +}{hline 34}   F(2, 1509)      = {res}    62.71
+{txt}       Model {c |} {res} 1.2486e+12         2  6.2428e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.5022e+13     1,509  9.9551e+09   {txt}R-squared       ={res}    0.0767
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0755
+{txt}       Total {c |} {res} 1.6271e+13     1,511  1.0768e+10   {txt}Root MSE        =   {res}  99775
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     htotval{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}hunder18 {c |}{col 14}{res}{space 2}  4306.61{col 26}{space 2} 2425.524{col 37}{space 1}    1.78{col 46}{space 3}0.076{col 54}{space 4}-451.1461{col 67}{space 3} 9064.367
+{txt}{space 5}married {c |}{col 14}{res}{space 2} 54581.09{col 26}{space 2}  5293.08{col 37}{space 1}   10.31{col 46}{space 3}0.000{col 54}{space 4} 44198.52{col 67}{space 3} 64963.67
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 68818.11{col 26}{space 2} 3748.022{col 37}{space 1}   18.36{col 46}{space 3}0.000{col 54}{space 4} 61466.22{col 67}{space 3} 76169.99
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. generate unmarried = 0 
+{txt}
+{com}. replace unmarried = 1 if a_maritl == 4 | a_maritl == 5 | a_maritl == 6 | a_maritl == 7
+{txt}(797 real changes made)
+
+{com}. 
+. reg htotval hunder18 unmarried
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,512
+{txt}{hline 13}{c +}{hline 34}   F(2, 1509)      = {res}    62.71
+{txt}       Model {c |} {res} 1.2486e+12         2  6.2428e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.5022e+13     1,509  9.9551e+09   {txt}R-squared       ={res}    0.0767
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0755
+{txt}       Total {c |} {res} 1.6271e+13     1,511  1.0768e+10   {txt}Root MSE        =   {res}  99775
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     htotval{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}hunder18 {c |}{col 14}{res}{space 2}  4306.61{col 26}{space 2} 2425.524{col 37}{space 1}    1.78{col 46}{space 3}0.076{col 54}{space 4}-451.1461{col 67}{space 3} 9064.367
+{txt}{space 3}unmarried {c |}{col 14}{res}{space 2}-54581.09{col 26}{space 2}  5293.08{col 37}{space 1}  -10.31{col 46}{space 3}0.000{col 54}{space 4}-64963.67{col 67}{space 3}-44198.52
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 123399.2{col 26}{space 2}  4499.12{col 37}{space 1}   27.43{col 46}{space 3}0.000{col 54}{space 4}   114574{col 67}{space 3} 132224.4
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *3C
+. generate hs_grad = 0
+{txt}
+{com}. replace hs_grad = 1 if a_hga >= 39
+{txt}(1,357 real changes made)
+
+{com}. 
+. reg htotval hunder18 hs_grad
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,512
+{txt}{hline 13}{c +}{hline 34}   F(2, 1509)      = {res}    27.44
+{txt}       Model {c |} {res} 5.7107e+11         2  2.8553e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.5700e+13     1,509  1.0404e+10   {txt}R-squared       ={res}    0.0351
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0338
+{txt}       Total {c |} {res} 1.6271e+13     1,511  1.0768e+10   {txt}Root MSE        =   {res} 1.0e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     htotval{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}hunder18 {c |}{col 14}{res}{space 2} 11429.68{col 26}{space 2} 2415.019{col 37}{space 1}    4.73{col 46}{space 3}0.000{col 54}{space 4}  6692.53{col 67}{space 3} 16166.83
+{txt}{space 5}hs_grad {c |}{col 14}{res}{space 2} 52499.11{col 26}{space 2} 8674.605{col 37}{space 1}    6.05{col 46}{space 3}0.000{col 54}{space 4} 35483.55{col 67}{space 3} 69514.67
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 42088.96{col 26}{space 2} 8550.264{col 37}{space 1}    4.92{col 46}{space 3}0.000{col 54}{space 4}  25317.3{col 67}{space 3} 58860.63
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *3D
+. gen hunder18_sq = hunder18 * hunder18
+{txt}
+{com}. reg htotval hunder18 hunder18_sq
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,512
+{txt}{hline 13}{c +}{hline 34}   F(2, 1509)      = {res}    16.69
+{txt}       Model {c |} {res} 3.5222e+11         2  1.7611e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.5919e+13     1,509  1.0549e+10   {txt}R-squared       ={res}    0.0216
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0204
+{txt}       Total {c |} {res} 1.6271e+13     1,511  1.0768e+10   {txt}Root MSE        =   {res} 1.0e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     htotval{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}hunder18 {c |}{col 14}{res}{space 2} 31748.86{col 26}{space 2} 5985.354{col 37}{space 1}    5.30{col 46}{space 3}0.000{col 54}{space 4} 20008.36{col 67}{space 3} 43489.35
+{txt}{space 1}hunder18_sq {c |}{col 14}{res}{space 2}-7070.278{col 26}{space 2} 1802.932{col 37}{space 1}   -3.92{col 46}{space 3}0.000{col 54}{space 4} -10606.8{col 67}{space 3} -3533.76
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 86228.27{col 26}{space 2}  3368.24{col 37}{space 1}   25.60{col 46}{space 3}0.000{col 54}{space 4} 79621.34{col 67}{space 3}  92835.2
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. *********
+. *       2: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework6_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}17 Nov 2023, 15:21:46
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

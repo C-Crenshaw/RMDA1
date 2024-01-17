@@ -1,0 +1,271 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework2_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}19 Sep 2023, 14:41:23
+{txt}
+{com}.         
+. *********
+. *       1: Open Data
+. *********
+. 
+.         use "${c -(}classpath{c )-}peer_pressure.dta", clear
+{txt}
+{com}. 
+. *********
+. *       2: Homework Code
+. *********
+. 
+.         **1a**
+.         describe
+
+{txt}Contains data from {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/peer_pressure.dta
+{txt} Observations:{res}           825                  
+{txt}    Variables:{res}            33                  9 Jun 2020 19:03
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:favorite_subj~t}{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1: Math. 2: Eng. 3: Hist/Soc Studies. 4: PE/Elec. From signup sheet.{p_end}
+{p 0 48}{bind:yesno          }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Signed up for course{p_end}
+{p 0 48}{bind:college        }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Plan to attend college? 1: 4-year. 2: 2-year. 3: N. 4: Don't know. From q.{p_end}
+{p 0 48}{bind:grades         }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Grades? 1: As. 2: As and Bs. 3: Bs and Cs. 4: Cs and Ds. 5: Ds and Fs. From q.{p_end}
+{p 0 48}{bind:how_pop        }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}How popular are you in school in school? From questionnaire.{p_end}
+{p 0 48}{bind:preference     }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Which prefer? 1: 50 dollars now. 2: 75 dollars in six months. From q.{p_end}
+{p 0 48}{bind:future         }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}How often do you think about your life when you are 40 years old? From q.{p_end}
+{p 0 48}{bind:skip           }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Do you ever skip school w/ friends? 1: Sometimes. 2: Never. From q.{p_end}
+{p 0 48}{bind:friends        }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Do most of your friends plan to graduate/good college? 1: Y. 2: N. From q.{p_end}
+{p 0 48}{bind:define         }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1: I do what my friends do. 2: I do things my own way. From q.{p_end}
+{p 0 48}{bind:honor          }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Surveyed in honors class{p_end}
+{p 0 48}{bind:price          }{txt}{bind: float   }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Estimated price of SAT prep course? ___ dollars. From questionnaire.{p_end}
+{p 0 48}{bind:chance         }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Think will have another chance to sign up for course? 1: Yes. 2: No. From q.{p_end}
+{p 0 48}{bind:percent        }{txt}{bind: float   }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Estimated % of classmates w/ taken/plan take another prep course. From q.{p_end}
+{p 0 48}{bind:gifted         }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Listed as Gifted/Talented at school? 1: Yes. 2: No. 3: Don't know. From q.{p_end}
+{p 0 48}{bind:honor_ap_tot   }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Total number of honors/AP classes{p_end}
+{p 0 48}{bind:gpa            }{txt}{bind: float   }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}GPA{p_end}
+{p 0 48}{bind:classroom_id   }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Classroom ID{p_end}
+{p 0 48}{bind:no_usage       }{txt}{bind: byte    }{bind:%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Did not log into training course{p_end}
+{p 0 48}{bind:public         }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form A -- public version{p_end}
+{p 0 48}{bind:important_pop~y}{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}How imp to be pop in your school? 1 if 3-5, 0 if 1-2. From q.{p_end}
+{p 0 48}{bind:hispanic       }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Hispanic. Generated from ethnicity, from questionnaire{p_end}
+{p 0 48}{bind:age            }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Age{p_end}
+{p 0 48}{bind:surveyor       }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Surveyor{p_end}
+{p 0 48}{bind:total_honor_ms }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Total number of math and science honors classes{p_end}
+{p 0 48}{bind:total_honor_s~i}{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Total number of social sciences honors classes{p_end}
+{p 0 48}{bind:honor_lang_art }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Enrolled in honors language arts class{p_end}
+{p 0 48}{bind:male           }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Male. Generated from gender, from questionnaire{p_end}
+{p 0 48}{bind:private        }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form B -- private version{p_end}
+{p 0 48}{bind:private_hon    }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form B in honors class{p_end}
+{p 0 48}{bind:private_reg    }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form B in regular class{p_end}
+{p 0 48}{bind:public_hon     }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form A in honors class{p_end}
+{p 0 48}{bind:public_reg     }{txt}{bind: float   }{bind:%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Received form A in regular class{p_end}
+{txt}{hline}
+Sorted by: 
+
+{com}.         ** 825 observations/students in the data. 
+.         
+.         **1b**
+.         bysort public: count
+
+{txt}{hline}
+-> public = 0
+  {res}411
+{txt}{hline}
+-> public = 1
+  {res}414
+{txt}
+{com}.         **  411 private treatment assignments. 
+.         
+.         **1c**
+.         tab public
+
+   {txt}Received {c |}
+  form A -- {c |}
+     public {c |}
+    version {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        411       49.82       49.82
+{txt}          1 {c |}{res}        414       50.18      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        825      100.00
+{txt}
+{com}.         ** 49.82% assigned to private treatment. 
+.         
+.         **2a** Honors class (binary) variable analysis
+.         **i.  265 in an honors class.
+.         bysort honor: count
+
+{txt}{hline}
+-> honor = 0
+  {res}560
+{txt}{hline}
+-> honor = 1
+  {res}265
+{txt}
+{com}.         **ii. 32.12%
+.         tab honor
+
+{txt}Surveyed in {c |}
+     honors {c |}
+      class {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        560       67.88       67.88
+{txt}          1 {c |}{res}        265       32.12      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        825      100.00
+{txt}
+{com}.         **iii.
+.         ttest honor, by(public)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    411{col 22} .3211679{col 34} .0230598{col 46} .4674942{col 58} .2758377{col 70} .3664981
+       {txt}1 {c |}{res}{col 12}    414{col 22}  .321256{col 34} .0229775{col 46} .4675239{col 58} .2760885{col 70} .3664236
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    825{col 22} .3212121{col 34} .0162667{col 46} .4672253{col 58} .2892831{col 70} .3531412
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0000882{col 34} .0325534{col 58}-.0639856{col 70} .0638092
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.0027
+{txt}H0: diff = 0                                     Degrees of freedom = {res}     823
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.4989         {txt}Pr(|T| > |t|) = {res}0.9978          {txt}Pr(T > t) = {res}0.5011
+{txt}
+{com}.         
+.         **2b** Male (binary) variable analysis
+.         **i. 423 male.
+.         bysort male: count 
+
+{txt}{hline}
+-> male = 0
+  {res}402
+{txt}{hline}
+-> male = 1
+  {res}423
+{txt}
+{com}.         **ii. 51.27%
+.         tab male
+
+      {txt}Male. {c |}
+  Generated {c |}
+       from {c |}
+    gender, {c |}
+       from {c |}
+questionnai {c |}
+         re {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        402       48.73       48.73
+{txt}          1 {c |}{res}        423       51.27      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        825      100.00
+{txt}
+{com}.         **iii.
+.         ttest male, by(public)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    411{col 22} .5060827{col 34} .0246914{col 46} .5005723{col 58} .4575452{col 70} .5546203
+       {txt}1 {c |}{res}{col 12}    414{col 22} .5193237{col 34}  .024585{col 46}  .500231{col 58} .4709963{col 70}  .567651
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    825{col 22} .5127273{col 34} .0174127{col 46} .5001412{col 58} .4785488{col 70} .5469057
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0132409{col 34} .0348437{col 58}-.0816339{col 70}  .055152
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.3800
+{txt}H0: diff = 0                                     Degrees of freedom = {res}     823
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.3520         {txt}Pr(|T| > |t|) = {res}0.7040          {txt}Pr(T > t) = {res}0.6480
+{txt}
+{com}.         
+.         **2c** Age (continuous) variable analysis
+.         **i. 16.74
+.         summarize age
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}        801    16.74205    .5125401    16.0219   21.06228
+{txt}
+{com}.         **ii. 
+.         ttest age, by(public)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    403{col 22} 16.73867{col 34} .0266499{col 46}  .534993{col 58} 16.68628{col 70} 16.79106
+       {txt}1 {c |}{res}{col 12}    398{col 22} 16.74547{col 34} .0245318{col 46} .4894071{col 58} 16.69724{col 70}  16.7937
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    801{col 22} 16.74205{col 34} .0181097{col 46} .5125401{col 58}  16.7065{col 70}  16.7776
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0068032{col 34}  .036242{col 58} -.077944{col 70} .0643375
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -0.1877
+{txt}H0: diff = 0                                     Degrees of freedom = {res}     799
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.4256         {txt}Pr(|T| > |t|) = {res}0.8511          {txt}Pr(T > t) = {res}0.5744
+{txt}
+{com}. 
+.         **3a**
+.         ttest yesno, by(public)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    411{col 22} .7810219{col 34}  .020424{col 46} .4140578{col 58} .7408731{col 70} .8211706
+       {txt}1 {c |}{res}{col 12}    414{col 22} .7125604{col 34} .0222694{col 46} .4531159{col 58} .6687848{col 70}  .756336
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    825{col 22} .7466667{col 34} .0151512{col 46}  .435184{col 58} .7169273{col 70} .7764061
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .0684615{col 34} .0302269{col 58} .0091307{col 70} .1277923
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res}  2.2649
+{txt}H0: diff = 0                                     Degrees of freedom = {res}     823
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9881         {txt}Pr(|T| > |t|) = {res}0.0238          {txt}Pr(T > t) = {res}0.0119
+{txt}
+{com}.         
+.         **3b**
+.         ttest no_usage, by(public)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. err.{col 47}Std. dev.{col 59}[95% conf. interval]
+{hline 9}{c +}{hline 68}
+       0 {c |}{res}{col 12}    411{col 22} .3649635{col 34} .0237756{col 46} .4820067{col 58} .3182261{col 70} .4117009
+       {txt}1 {c |}{res}{col 12}    414{col 22} .4178744{col 34} .0242692{col 46}  .493806{col 58} .3701678{col 70}  .465581
+{txt}{hline 9}{c +}{hline 68}
+Combined {c |}{res}{col 12}    825{col 22} .3915152{col 34} .0170034{col 46} .4883853{col 58} .3581401{col 70} .4248902
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0529109{col 34} .0339776{col 58}-.1196039{col 70} .0137821
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}0{txt}) - mean({res}1{txt})                                      t = {res} -1.5572
+{txt}H0: diff = 0                                     Degrees of freedom = {res}     823
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0599         {txt}Pr(|T| > |t|) = {res}0.1198          {txt}Pr(T > t) = {res}0.9401
+{txt}
+{com}.         
+. 
+.         
+. *********
+. *       3: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework2_log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}19 Sep 2023, 14:41:23
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

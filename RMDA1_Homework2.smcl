@@ -1,0 +1,33 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}14 Sep 2023, 11:38:13
+{txt}
+{com}.         
+. *********
+. *       1: Open Data
+. *********
+. 
+.         use "${c -(}classpath{c )-}peer_pressure.dta", clear
+{txt}
+{com}. 
+. *********
+. *       2: Homework Code
+. *********
+. 
+.         
+.         
+. *********
+. *       3: Close log file
+. *********       
+.         
+.         log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/RMDA1_Homework2.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}14 Sep 2023, 11:38:13
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

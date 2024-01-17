@@ -1,0 +1,62 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA IRMDA1_Homework2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}14 Sep 2023, 11:37:56
+{txt}
+{com}.         
+. *********
+. *       1: Open Data
+. *********
+. 
+.         use "${c -(}classpath{c )-}peer_pressure.dta", clear
+{err}{p 0 4 2}
+file {bf:{err}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA Ipeer_pressure.dta}
+not found
+{p_end}
+{txt}{search r(601), local:r(601);}
+
+end of do-file
+
+{search r(601), local:r(601);}
+
+{com}. do "/var/folders/n6/qc6n653x0lg2qjdmzrd92rt80000gn/T//SD13733.000000"
+{txt}
+{com}. *********************************************************************************               
+. /*      TITLE:          RMDA1_Homework2.do                                                              
+> *       PURPOSE:        Code written for the completion of RMDA Homework 2.                             
+> *       AUTHOR:         Carson Crenshaw                                                                                         
+> *       CREATED:        09/14/2023                                                                                                                      
+> *       CALLS UPON:     "${c -(}rawdatapath{c )-}peer_pressure.dta"                                       
+> *       CONTENTS:       0: Set globals
+> *                               1: Open Data 
+> *                               2: Homework Answers
+> *                               3: Close log file (learn about this in Week 03)
+> */
+. *********************************************************************************
+. 
+.         clear all
+{res}{txt}
+{com}.         set more off
+{txt}
+{com}.         pause on
+{txt}
+{com}. 
+. *********
+. *       0. Set globals & start log file 
+. *********
+. 
+.         **Set file paths using globals 
+.         
+.         glob classpath "/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I/"
+{txt}
+{com}.         cd "${c -(}classpath{c )-}" 
+{res}/Users/carsoncrenshaw/Library/CloudStorage/OneDrive-UniversityofVirginia/RMDA I
+{txt}
+{com}. 
+.         **Start the log file (something we'll learn about later in class)
+.         
+.         capture log close
+{smcl}
+{com}{sf}{ul off}
